@@ -4,7 +4,7 @@ export const WeatherWidget = () => {
     const fecha:string = date.toLocaleDateString();
     const hora:string = date.toLocaleTimeString();
     return (
-        <div className='flex items-center gap-6 shadow-md rounded-lg max-w-[550px] max-h-[150px] p-6'>
+        <div className='flex items-center gap-6 shadow-md rounded-lg max-w-[550px] max-h-[150px] p-6 bg-white'>
             <h2 className='text-7xl font-bold text-blue-950'>28°C</h2>
             <div className="flex flex-col gap-1 ">
                 <h3 className="text-2xl font-bold text-blue-950">San Luis</h3>

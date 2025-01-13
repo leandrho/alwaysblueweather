@@ -3,7 +3,7 @@ import { WeatherHero } from './components/WeatherHero';
 function App() {
   
   return (
-    <div className='flex flex-col h-screen'>
+    <div className='flex flex-col h-screen bg-cyan-50'>
       <WeatherHeader/>
       <main className='flex flex-grow p-8'> {/*bg-hero-summer bg-cover bg-center bg-no-repeat*/}
         <WeatherHero/>
