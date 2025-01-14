@@ -12,7 +12,8 @@ export const getWeatherInfo = async (name: string, code: string) : Promise<Weath
         return res.success ? res.data : {} as WeatherInfo;
 
     } catch (error) {
-        throw new Error("Can't get info from openweather - Error: "+error);
+        console.log("Can't get info from openweather - Error: "+error);
+        return {} as WeatherInfo;
     }
 }
 export const getWeatherInfoByLatLong = async (lat: number, long: number) : Promise<WeatherInfo> => {
@@ -24,7 +25,8 @@ export const getWeatherInfoByLatLong = async (lat: number, long: number) : Promi
         return res.success ? res.data : {} as WeatherInfo;
 
     } catch (error) {
-        throw new Error("Can't get info from openweather - Error: "+error);
+        console.log("Can't get info from openweather - Error: "+error);
+        return {} as WeatherInfo;
     }
 }
 
