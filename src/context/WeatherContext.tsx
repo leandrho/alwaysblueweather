@@ -9,10 +9,11 @@ type WeatherContextType = {
     searchWeatherByLatLong: (lat: number, long: number) => Promise<void>
     errorMsg: string
     loading: boolean
+    cleanError :()=>void
 }
 export const WeatherContext = createContext({} as WeatherContextType);
 
-const initialState :WeatherInfo = {
+export const initialState :WeatherInfo = {
     name: '',
     timezone: 0,
     main:{
@@ -32,6 +33,9 @@ const initialState :WeatherInfo = {
         country: '',
         sunrise: 0,
         sunset: 0,
+    },
+    clouds: {
+        all: 0
     }
 };
 
@@ -48,13 +52,14 @@ export const WeatherProvider = ( { children }: WeatherProviderProp ) => {
 
     setLoading(true);
     const newWeatherInfo : WeatherInfo = await getWeatherInfo(name, countryCode);
-
+    console.log('WINFO: ', newWeatherInfo)
     if(newWeatherInfo.name){
         setWeatherInfo({...newWeatherInfo, main: {...newWeatherInfo.main, temp: kelvinToCelsius(newWeatherInfo.main.temp), temp_max: kelvinToCelsius(newWeatherInfo.main.temp_max), temp_min: kelvinToCelsius(newWeatherInfo.main.temp_min)}});
         setErrorMsg('');
     }
     else{
-        setErrorMsg("No se puede encontrar la ciudad ingresada!!");
+        setWeatherInfo(initialState);
+        setErrorMsg(`No se puede encontrar la ciudad : ${name}`);
     }
     setLoading(false);
   }
@@ -68,13 +73,16 @@ export const WeatherProvider = ( { children }: WeatherProviderProp ) => {
         setErrorMsg('');
     }
     else{
+        setWeatherInfo(initialState);
         setErrorMsg("No se puede encontrar la ciudad ingresada!!");
     }
     setLoading(false);
   }
-
+  const cleanError = () => {
+    setErrorMsg('');
+  }
   return (
-    <WeatherContext.Provider value={{ weatherInfo, searchWeather, searchWeatherByLatLong, errorMsg, loading }}>
+    <WeatherContext.Provider value={{ weatherInfo, searchWeather, searchWeatherByLatLong, errorMsg, loading, cleanError }}>
         { children }
     </WeatherContext.Provider>
   )

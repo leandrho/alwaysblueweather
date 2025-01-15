@@ -20,6 +20,9 @@ export const WeatherSchema = z.object({
         country: z.string(),
         sunrise: z.number(),
         sunset: z.number(),
+    }),
+    clouds: z.object({
+        all: z.number()
     })
 });
 
