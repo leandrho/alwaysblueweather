@@ -12,7 +12,7 @@ export const WeatherWidget = () => {
     
   
     return (
-        <div className='flex items-center gap-6 shadow-md rounded-lg max-w-[550px] max-h-[150px] p-6 bg-white'>
+        <div className='flex items-center justify-center gap-6 shadow-md rounded-lg max-w-[620px] min-h-[180px] p-8 bg-white/20 backdrop-blur-xl'>
             <h2 className='text-7xl font-bold text-blue-950'>{`${weatherInfo.main.temp}°C`}</h2>
             <div className="flex flex-col gap-1 ">
                 <h3 className="text-2xl font-bold text-blue-950">{weatherInfo.name}</h3>
