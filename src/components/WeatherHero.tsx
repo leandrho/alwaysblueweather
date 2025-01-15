@@ -1,6 +1,6 @@
 import { useWeather } from '../hooks/useWeather';
 import { WeatherLoading } from './WeatherLoading';
-import { WeatherWidget } from './WeatherWidget';
+import { WeatherWidgetList } from './WeatherWidgetList';
 
 export const WeatherHero = () => {
   const {loading } = useWeather();
@@ -8,7 +8,7 @@ export const WeatherHero = () => {
     <section className="flex-grow flex flex-col gap-4 justify-center ml-20">
        {
         loading ?<WeatherLoading />
-                :<WeatherWidget />
+                :<WeatherWidgetList />
 
        }
     </section>

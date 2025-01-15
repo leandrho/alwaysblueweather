@@ -1,6 +1,8 @@
 import { z } from 'zod';
 
 export const WeatherSchema = z.object({
+    id: z.number(),
+    dt: z.number(),
     name: z.string(),
     timezone: z.number(),
     main: z.object({
