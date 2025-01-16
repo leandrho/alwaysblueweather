@@ -7,7 +7,7 @@ import { WeatherTodayInfo } from './WeatherTodayInfo';
 export const WeatherPanel = () => {
   const {loading} = useWeather();
   return (
-    <div className="flex flex-col gap-4 justify-center bg-white/20  backdrop-blur-xl min-w-[475px] rounded-xl shadow-md">
+    <div className="flex flex-col gap-4 max-w-[640px]">
         <WeatherSearch />
         {
           loading ?<WeatherLoading />

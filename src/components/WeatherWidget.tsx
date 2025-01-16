@@ -15,7 +15,7 @@ export const WeatherWidget = ({temp, location, id, date, active, setActive, remo
   
     return (
         <>
-              <button className={`flex items-center justify-center gap-6 shadow-md rounded-lg max-w-[620px] min-h-[180px] p-8 bg-white/20 backdrop-blur-xl cursor-pointer `+` ${active?'outline outline-4 outline-white/50':''}` }
+              <button className={`flex items-center justify-center gap-6 shadow-md rounded-lg max-w-[640px] min-h-[180px] p-8 bg-white/20 backdrop-blur-xl cursor-pointer `+` ${active?'outline outline-4 outline-white/50':''}` }
               onClick={()=> setActive(id)}>
                     <h2 className='text-7xl font-bold text-blue-950'>{`${temp}°C`}</h2>
                     <div className="flex flex-col gap-1 ">
