@@ -7,7 +7,6 @@ export const WeatherWidgetList = () => {
         setCurrentWeatherID(id);
     }
     const removeWidget = (id: number) :void => {
-        console.log('REMOVING..: ', id)
         removeWeatherInfo(id);
     }
     return (
