@@ -24,7 +24,7 @@ export const useWeatherState = () => {
         setLoading(true);
         try {
             const newWeatherInfo : WeatherInfo = await getWeatherInfo(name, countryCode);
-            const n = {...newWeatherInfo, id: Date.now(), main: {...newWeatherInfo.main, temp: kelvinToCelsius(newWeatherInfo.main.temp), temp_max: kelvinToCelsius(newWeatherInfo.main.temp_max), temp_min: kelvinToCelsius(newWeatherInfo.main.temp_min)}};
+            const n = {...newWeatherInfo, id: Date.now(), main: {...newWeatherInfo.main, feels_like: kelvinToCelsius(newWeatherInfo.main.feels_like), temp: kelvinToCelsius(newWeatherInfo.main.temp), temp_max: kelvinToCelsius(newWeatherInfo.main.temp_max), temp_min: kelvinToCelsius(newWeatherInfo.main.temp_min)}};
             setWeatherInfo((prev)=>[...prev, n]);
             setErrorMsg('');
            
@@ -40,7 +40,7 @@ export const useWeatherState = () => {
         setLoading(true);
         try {
             const newWeatherInfo : WeatherInfo = await getWeatherInfoByLatLong(lat, long);
-            const n = {...newWeatherInfo, id: Date.now(), main: {...newWeatherInfo.main, temp: kelvinToCelsius(newWeatherInfo.main.temp), temp_max: kelvinToCelsius(newWeatherInfo.main.temp_max), temp_min: kelvinToCelsius(newWeatherInfo.main.temp_min)}};
+            const n = {...newWeatherInfo, id: Date.now(), main: {...newWeatherInfo.main, feels_like: kelvinToCelsius(newWeatherInfo.main.feels_like), temp: kelvinToCelsius(newWeatherInfo.main.temp), temp_max: kelvinToCelsius(newWeatherInfo.main.temp_max), temp_min: kelvinToCelsius(newWeatherInfo.main.temp_min)}};
             setWeatherInfo([n]);
             setErrorMsg('');
            
